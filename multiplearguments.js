@@ -15,4 +15,12 @@ function multiplearguments(source) {
     return(results)
    } else {
     return(results[0])
+  } },
+  get(target, key) {
+   if(key == "toString") {
+    return(function() {
+     return(target.toString())
+    })
+   } else {
+    return(Reflect.get(target, key))
 } } })) }
