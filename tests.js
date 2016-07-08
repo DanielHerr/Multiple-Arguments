@@ -1,5 +1,26 @@
 "use strict"
 
+test("name property", function() {
+ let result = multiplearguments(function something() { })
+ if(result.name != "something") {
+  throw('should be "something" but is ' + result.name)
+} })
+
+test("toString method", function() {
+ let result1 = multiplearguments(function() { })
+ let result2 = result1.toString()
+ if(result2 != "function () { }") {
+  throw('should return "function () { }" but returns ' + result2)
+} })
+
+test("this value", function() {
+ let result = multiplearguments(function() {
+  if(this != "something") {
+   throw('should be "something" but is ' + this)
+ } })
+ result.call("something")
+})
+
 test("single argument", function() {
  let result1 = multiplearguments(function(...inputs) {
   return(inputs)
