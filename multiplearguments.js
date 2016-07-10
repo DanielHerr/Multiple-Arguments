@@ -1,7 +1,8 @@
 "use strict"
 
 function multiplearguments(source) {
- return(new Proxy(source, {
+ let sourcetext = source.toString()
+ let proxy = new Proxy(source, {
   apply(target, that, inputs) {
    let multiple = true
    if(inputs.length == 1) {
@@ -15,12 +16,9 @@ function multiplearguments(source) {
     return(results)
    } else {
     return(results[0])
-  } },
-  get(target, key) {
-   if(key == "toString") {
-    return(function() {
-     return(target.toString())
-    })
-   } else {
-    return(Reflect.get(target, key))
-} } })) }
+ } } })
+ proxy.toString = function() {
+  return(sourcetext)
+ }
+ return(proxy)
+}
