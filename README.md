@@ -13,4 +13,4 @@ test([ 1 ]) == [ 1 ]
 test([ 1, 2 ]) == [ 1, 2 ]
 ```
 
-<a href="https://danielherr.github.io/Multiple-Arguments/test.html">Run Tests</a>
+<a href="https://danielherr.github.io/Multiple-Arguments/tests.html">Run Tests</a>
